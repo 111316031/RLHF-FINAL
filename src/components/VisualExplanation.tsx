@@ -1,35 +1,32 @@
-import { Layout } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 import Section from './Section';
 
 const VisualExplanation = () => {
   return (
-    <Section id="visual" title="4. 視覺化說明" icon={<Layout size={24} />}>
-      <div className="space-y-6 text-center">
-        <p className="text-gray-600 mb-8">
-          用一張圖或表說明演算法的概念、流程或架構
-        </p>
-        
-        <div className="bg-gray-50 border-2 border-dashed border-gray-200 rounded-2xl min-h-[400px] flex flex-col items-center justify-center p-8">
-          <div className="text-gray-400 mb-4">
-            <Layout size={64} strokeWidth={1} />
-          </div>
-          <p className="text-gray-500 font-medium">在此處嵌入流程圖、架構圖或視覺化互動元件</p>
-          <p className="text-gray-400 text-sm mt-2">(可以使用 Mermaid.js, SVG 或 圖片元件)</p>
+    <Section 
+      id="visual" 
+      title="視覺化架構分析" 
+      badge="Visual Architecture"
+      isAlt
+    >
+      <div className="flex flex-col items-center">
+        <div className="w-full bg-slate-900 aspect-video md:aspect-[21/9] flex flex-col items-center justify-center border-b-8 border-[--honhai-red]">
+          <Share2 size={64} className="text-slate-700 mb-6" />
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em]">Architecture Diagram</p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-          <div className="p-4 bg-white shadow-sm border border-gray-100 rounded-lg">
-            <span className="block font-bold text-blue-600 mb-1">流程圖</span>
-            <span className="text-xs text-gray-400">展示步驟邏輯</span>
-          </div>
-          <div className="p-4 bg-white shadow-sm border border-gray-100 rounded-lg">
-            <span className="block font-bold text-blue-600 mb-1">架構圖</span>
-            <span className="text-xs text-gray-400">展示系統組成</span>
-          </div>
-          <div className="p-4 bg-white shadow-sm border border-gray-100 rounded-lg">
-            <span className="block font-bold text-blue-600 mb-1">比較表</span>
-            <span className="text-xs text-gray-400">分析優劣差異</span>
-          </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 w-full border-x border-b border-slate-200">
+           {[
+             { title: '數據流轉', desc: '展示系統內部的資訊流向與處理節點。' },
+             { title: '邏輯層次', desc: '解構演算法的遞迴、分治或動態規劃層次。' },
+             { title: '效能評估', desc: '透過圖表展現不同規模下的運算效率。' }
+           ].map((item, i) => (
+             <div key={i} className="p-8 border-r last:border-0 border-slate-100 hover:bg-slate-50 transition-colors">
+                <div className="text-[--honhai-red] font-black mb-4">0{i + 1}</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-3 uppercase tracking-tight">{item.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+             </div>
+           ))}
         </div>
       </div>
     </Section>

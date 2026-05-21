@@ -4,13 +4,13 @@ import VerificationCorrection from './components/VerificationCorrection';
 import VisualExplanation from './components/VisualExplanation';
 import ApplicationCase from './components/ApplicationCase';
 import LearningReflection from './components/LearningReflection';
-import { Globe, User, Search, ArrowUpRight, Zap, Terminal } from 'lucide-react';
+import { Globe, User, Search, ChevronRight, Activity, Cpu, Briefcase } from 'lucide-react';
 
 function App() {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 100;
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -18,140 +18,151 @@ function App() {
   };
 
   const navItems = [
-    { id: 'intro', label: '介紹', icon: <Terminal size={14} /> },
-    { id: 'ai-record', label: '紀錄', icon: <Zap size={14} /> },
-    { id: 'verification', label: '數據', icon: <Search size={14} /> },
-    { id: 'visual', label: '視覺', icon: <Globe size={14} /> },
-    { id: 'application', label: '實踐', icon: <ArrowUpRight size={14} /> },
-    { id: 'reflection', label: '反思', icon: <User size={14} /> },
+    { id: 'intro', label: '核心技術' },
+    { id: 'ai-record', label: '學習軌跡' },
+    { id: 'verification', label: '數據實證' },
+    { id: 'visual', label: '視覺架構' },
+    { id: 'application', label: '全球應用' },
+    { id: 'reflection', label: '願景反思' },
   ];
 
   return (
-    <div className="min-h-screen">
-      <div className="glow-bg" />
-      
-      {/* Floating Modern Header */}
-      <nav className="fixed top-6 inset-x-0 z-[100] max-w-4xl mx-auto px-4">
-        <div className="glass-panel h-14 rounded-full px-6 flex items-center justify-between card-shadow">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white">
-              <Zap size={16} fill="white" />
+    <div className="min-h-screen selection:bg-[--honhai-red] selection:text-white">
+      {/* Hon Hai Corporate Header */}
+      <header className="hh-header">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
+          <div className="flex items-center gap-12">
+            <div className="flex items-center gap-1 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              <span className="text-4xl font-black text-[--honhai-red] tracking-tighter">HON HAI</span>
+              <div className="h-8 w-px bg-slate-200 mx-2" />
+              <span className="text-lg font-bold text-slate-900 tracking-widest uppercase">Research</span>
             </div>
-            <span className="font-black text-sm tracking-tighter uppercase italic">Zenith.</span>
-          </div>
-
-          <div className="hidden md:flex items-center gap-1">
-            {navItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className="px-4 py-1.5 text-[11px] font-bold text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-all"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          <button className="px-5 py-2 bg-indigo-600 text-white text-[11px] font-black rounded-full hover:bg-indigo-700 transition-all active:scale-95 shadow-lg shadow-indigo-100">
-            CONTACT
-          </button>
-        </div>
-      </nav>
-
-      <main className="relative">
-        {/* Zenith Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 pt-48 pb-24 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-[11px] font-black tracking-widest uppercase mb-12 animate-fade-in">
-            Algorithm Synthesis 2026
-          </div>
-          
-          <h1 className="text-7xl md:text-[10rem] font-bold tracking-tight text-slate-900 leading-[0.8] mb-16 text-reveal">
-            The New <br />
-            Standard.
-          </h1>
-          
-          <div className="max-w-2xl mx-auto">
-            <p className="text-2xl text-slate-500 leading-relaxed font-medium mb-12 text-reveal" style={{ animationDelay: '0.2s' }}>
-              We've redesigned the core of technical research. A seamless integration of AI insight and human logic.
-            </p>
             
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-reveal" style={{ animationDelay: '0.4s' }}>
-               <button 
-                 onClick={() => scrollTo('intro')}
-                 className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl hover:scale-105 transition-all shadow-2xl flex items-center gap-3 group"
-               >
-                 Start Exploration
-                 <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-               </button>
-               <div className="flex items-center gap-4">
-                 <div className="flex -space-x-4">
-                    {[1, 2, 3].map(i => (
-                      <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden shadow-sm">
-                        <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="avatar" />
+            <nav className="hidden lg:flex items-center gap-8">
+              {navItems.map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className="hh-nav-link"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </div>
+
+          <div className="flex items-center gap-6">
+            <button className="p-2 text-slate-400 hover:text-[--honhai-red] transition-colors">
+              <Search size={20} />
+            </button>
+            <button className="hh-btn hidden sm:block">
+              全球布局
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="pt-20">
+        {/* Authoritative Hero Section */}
+        <section className="bg-white border-b-8 border-[--honhai-red] py-32 md:py-48">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
+              <div>
+                <span className="hh-hero-subtitle">Intelligence Beyond Boundaries</span>
+                <h1 className="hh-hero-title mt-6">
+                  鴻海科技集團 <br />
+                  <span className="text-[--honhai-red]">2026 演算法報告</span>
+                </h1>
+                <p className="mt-10 text-xl text-slate-600 leading-relaxed font-medium">
+                  以全球領先的製造實力為基礎，深耕演算法與智慧系統開發。這不僅是一份學習紀錄，更是我們邁向未來科技的數位資產。
+                </p>
+                <div className="mt-12 flex flex-wrap gap-6">
+                  <button 
+                    onClick={() => scrollTo('intro')}
+                    className="hh-btn flex items-center gap-3"
+                  >
+                    進入技術專題 <ChevronRight size={18} />
+                  </button>
+                  <button className="px-8 py-3 border-2 border-slate-900 text-slate-900 font-bold text-sm tracking-widest uppercase hover:bg-slate-50 transition-all">
+                    技術白皮書
+                  </button>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6">
+                 {[
+                   { label: 'Fortune Global', val: '28', unit: 'th', icon: <Briefcase /> },
+                   { label: 'Revenue', val: '6.6', unit: 'TWD T', icon: <Activity /> },
+                   { label: 'Technology', val: '3+3', unit: 'Strategy', icon: <Cpu /> },
+                   { label: 'Innovation', val: '100', unit: '% Effort', icon: <Globe /> }
+                 ].map((stat, i) => (
+                   <div key={i} className="hh-stat-card">
+                      <div className="text-[--honhai-red] mb-2">{stat.icon}</div>
+                      <div className="text-3xl font-black text-slate-900 leading-none">
+                        {stat.val}<span className="text-sm font-bold text-slate-400 ml-1">{stat.unit}</span>
                       </div>
-                    ))}
-                 </div>
-                 <div className="text-left">
-                    <p className="text-sm font-black text-slate-900">Ethan Xuan</p>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Lead Investigator</p>
-                 </div>
-               </div>
+                      <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest mt-2">{stat.label}</div>
+                   </div>
+                 ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Modular Bento Content */}
-        <div className="max-w-6xl mx-auto">
+        {/* Structured Corporate Content */}
+        <div className="bg-white">
           <AlgorithmIntro />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            <AILearningRecord />
-            <VerificationCorrection />
-          </div>
+          <AILearningRecord />
+          <VerificationCorrection />
           <VisualExplanation />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            <ApplicationCase />
-            <LearningReflection />
-          </div>
+          <ApplicationCase />
+          <LearningReflection />
         </div>
       </main>
 
-      {/* Floating Dock Navigation (Mobile Friendly) */}
-      <div className="fixed bottom-8 inset-x-0 z-[100] flex justify-center">
-        <div className="glass-panel h-16 rounded-3xl p-2 flex items-center gap-1 card-shadow border-white/50">
-          {navItems.map(item => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="dock-item w-12 h-12 md:w-20 md:h-12 flex flex-col items-center justify-center rounded-2xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 group"
-            >
-              {item.icon}
-              <span className="text-[8px] font-black uppercase mt-1 hidden md:block">{item.label}</span>
-            </button>
-          ))}
-          <div className="w-px h-8 bg-slate-200 mx-2" />
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-900 text-white hover:bg-indigo-600 transition-colors"
-          >
-            <ArrowUpRight size={16} className="-rotate-90" />
-          </button>
-        </div>
-      </div>
-
-      <footer className="py-32 bg-slate-50 border-t border-slate-100 mt-20">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-          <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white mb-8">
-            <Zap size={24} fill="white" />
+      {/* Global Corporate Footer */}
+      <footer className="bg-[--honhai-charcoal] py-32 text-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-4 gap-16 mb-24">
+            <div className="col-span-2">
+              <span className="text-5xl font-black text-white tracking-tighter uppercase mb-8 block">HON HAI <span className="text-[--honhai-red]">Technology Group</span></span>
+              <p className="text-slate-400 max-w-lg leading-relaxed text-sm">
+                鴻海科技集團為全球最大的電子代工服務商，專注於資訊、通訊、自動化設備、光電、精密機械、汽車、與消費性電子等產業。我們透過全球化的佈局與技術創新，為人類創造更美好的智慧生活。
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-xs font-black text-white uppercase tracking-[0.2em] mb-8 border-b border-slate-700 pb-2 inline-block">技術領域</h4>
+              <nav className="flex flex-col gap-4 text-sm text-slate-500 font-bold">
+                <a href="#" className="hover:text-[--honhai-red] transition-colors">電動車 EV</a>
+                <a href="#" className="hover:text-[--honhai-red] transition-colors">數位健康 Digital Health</a>
+                <a href="#" className="hover:text-[--honhai-red] transition-colors">機器人 Robotics</a>
+              </nav>
+            </div>
+            
+            <div>
+              <h4 className="text-xs font-black text-white uppercase tracking-[0.2em] mb-8 border-b border-slate-700 pb-2 inline-block">關於我們</h4>
+              <nav className="flex flex-col gap-4 text-sm text-slate-500 font-bold">
+                <a href="#" className="hover:text-[--honhai-red] transition-colors">集團概況</a>
+                <a href="#" className="hover:text-[--honhai-red] transition-colors">投資者關係</a>
+                <a href="#" className="hover:text-[--honhai-red] transition-colors">社會責任 ESG</a>
+              </nav>
+            </div>
           </div>
-          <p className="text-3xl font-bold tracking-tight text-slate-900 mb-6">Built for the future of research.</p>
-          <div className="flex gap-8 text-xs font-black text-slate-400 uppercase tracking-widest">
-            <a href="#" className="hover:text-indigo-600 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-indigo-600 transition-colors">Security</a>
-            <a href="#" className="hover:text-indigo-600 transition-colors">Contact</a>
+          
+          <div className="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex items-center gap-6">
+               <span className="text-[10px] font-black text-slate-600 uppercase tracking-[0.3em]">© 2026 HON HAI PRECISION INDUSTRY CO., LTD.</span>
+            </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 bg-slate-800 flex items-center justify-center hover:bg-[--honhai-red] transition-colors cursor-pointer">
+                <Globe size={18} />
+              </div>
+              <div className="w-10 h-10 bg-slate-800 flex items-center justify-center hover:bg-[--honhai-red] transition-colors cursor-pointer">
+                <User size={18} />
+              </div>
+            </div>
           </div>
-          <p className="mt-12 text-[10px] font-bold text-slate-300 uppercase tracking-[0.3em]">
-            © 2026 ZENITH SYNTHESIS. v3.0 FINAL - {new Date().toLocaleTimeString()}
-          </p>
         </div>
       </footer>
     </div>

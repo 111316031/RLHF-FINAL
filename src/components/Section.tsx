@@ -5,35 +5,36 @@ interface SectionProps {
   title: string;
   badge?: string;
   subtitle?: string;
-  icon?: React.ReactNode; // Keeping icon for compatibility
+  isAlt?: boolean;
   children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, badge, subtitle, children }) => {
+const Section: React.FC<SectionProps> = ({ id, title, badge, subtitle, isAlt, children }) => {
   return (
-    <section id={id} className="py-32 scroll-mt-20 first:pt-16">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="flex flex-col mb-16 items-start text-left">
+    <div id={id} className={isAlt ? "hh-section-alt" : "hh-section-container"}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div className="flex flex-col mb-16">
           {badge && (
-            <span className="text-[10px] font-black tracking-[0.3em] text-indigo-600 uppercase mb-4 bg-indigo-50 px-2 py-1 rounded-sm">
+            <span className="text-[13px] font-black tracking-[0.3em] text-[--honhai-red] uppercase mb-4">
               {badge}
             </span>
           )}
-          <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 leading-none tracking-tighter">
+          <h2 className="leading-none">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-2xl leading-tight">
+            <p className="mt-8 text-xl text-slate-500 font-medium max-w-4xl leading-relaxed">
               {subtitle}
             </p>
           )}
         </div>
         
-        <div className="bg-white rounded-[3rem] p-10 md:p-20 card-shadow border border-slate-100/50 transition-all duration-700 hover:border-indigo-100">
-          {children}
+        <div className="mt-12 bg-white p-8 md:p-16 border border-slate-100 shadow-sm relative overflow-hidden">
+           <div className="absolute top-0 left-0 w-1.5 h-full bg-[--honhai-red]" />
+           {children}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

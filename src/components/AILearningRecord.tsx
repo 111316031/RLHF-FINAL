@@ -1,39 +1,42 @@
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, Cpu } from 'lucide-react';
 import Section from './Section';
 
 const AILearningRecord = () => {
   return (
-    <Section id="ai-record" title="2. AI 輔助學習紀錄" icon={<MessageSquare size={24} />}>
-      <div className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-gray-700">我問了 AI 什麼問題？</h3>
-            <div className="bg-blue-50 border-l-4 border-blue-400 p-4 italic text-gray-700">
-              「請詳細解釋...演算法的原理，並舉例說明...」
+    <Section 
+      id="ai-record" 
+      title="AI 學習軌跡紀錄" 
+      badge="AI Collaboration"
+      isAlt
+    >
+      <div className="grid md:grid-cols-2 gap-12">
+        <div className="space-y-6">
+          <div className="flex gap-4 items-start">
+            <div className="p-3 bg-[--honhai-red] text-white">
+              <MessageSquare size={20} />
             </div>
-            <p className="text-gray-600">
-              描述提問的背景與目的，為什麼會選擇這樣問？
-            </p>
+            <div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2 uppercase">關鍵提問</h3>
+              <p className="text-slate-500 italic">「如何在大規模數據集中應用此演算法以實現零誤差？」</p>
+            </div>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-gray-700">AI 回答的重點是什麼？</h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
-              <li>重點一：關於...的解釋</li>
-              <li>重點二：提供了...的範例</li>
-              <li>重點三：指出了...的注意事項</li>
-            </ul>
-          </div>
-        </div>
-        
-        <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-          <h3 className="text-xl font-semibold text-gray-700 mb-4">學習成效</h3>
-          <p className="text-gray-600 leading-relaxed">
-            這些回答如何幫助自己理解？例如：原本不懂的部分透過 AI 的類比得到了啟發，或是清楚了原本混淆的觀念。
+          <p className="text-slate-600 leading-relaxed pl-14">
+            我們利用 AI 的分析能力，針對技術細節進行深度探索。
           </p>
         </div>
-
-        <div className="border-2 border-dashed border-gray-200 rounded-xl p-12 text-center text-gray-400">
-          <p>這裡可以放入 AI 對話的截圖</p>
+        
+        <div className="bg-slate-50 p-8 border border-slate-200">
+          <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+            <Cpu size={14} /> AI 核心反饋
+          </h3>
+          <ul className="space-y-4">
+            {['精準參數配置', '邊際效應分析', '資源分配優化'].map(item => (
+              <li key={item} className="flex items-center gap-3 text-slate-700 font-bold border-b border-slate-200 pb-2 last:border-0">
+                 <div className="w-1.5 h-1.5 bg-[--honhai-red]" />
+                 {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </Section>

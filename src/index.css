@@ -4,76 +4,79 @@
 
 @layer base {
   :root {
-    --accent: #6366f1;
-    --accent-dark: #4f46e5;
-    --bg-surface: #ffffff;
-    --bg-dim: #f8fafc;
-    --text-strong: #0f172a;
-    --text-muted: #64748b;
-    --border-subtle: rgba(0, 0, 0, 0.05);
+    --honhai-red: #e60012;
+    --honhai-charcoal: #1a1a1a;
+    --honhai-gray-light: #f5f5f5;
+    --honhai-gray-mid: #e5e5e5;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
   }
 }
 
 body {
   background-color: #ffffff;
-  color: #0f172a;
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
-  letter-spacing: -0.01em;
-  -webkit-font-smoothing: antialiased;
+  color: var(--text-primary);
+  font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-/* Premium Typography */
-h1, h2, h3 {
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+/* Global Corporate Header */
+.hh-header {
+  @apply bg-white border-b-2 border-slate-100 fixed top-0 inset-x-0 z-[100] h-20 flex items-center shadow-sm;
 }
 
-/* The "Glow" Effect */
-.glow-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: 
-    radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.08), transparent 70%),
-    radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.03), transparent 50%);
+.hh-nav-link {
+  @apply text-[15px] font-bold text-slate-700 hover:text-[--honhai-red] transition-all relative px-2 py-1;
 }
 
-/* Glass & Border Effects */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+.hh-nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-[3px] bg-[--honhai-red] transition-all duration-300;
 }
 
-.card-shadow {
-  box-shadow: 
-    0 0 0 1px rgba(0, 0, 0, 0.03),
-    0 2px 4px rgba(0, 0, 0, 0.02),
-    0 12px 24px rgba(0, 0, 0, 0.03);
+.hh-nav-link:hover::after {
+  @apply w-full;
 }
 
-/* Floating Dock Animation */
-.dock-item {
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+/* Authoritative Section Container */
+.hh-section-container {
+  @apply bg-white border-t border-slate-200 py-24;
 }
 
-.dock-item:hover {
-  transform: translateY(-4px);
+.hh-section-alt {
+  @apply bg-[--honhai-gray-light] border-y border-slate-200 py-24;
 }
 
-.text-reveal {
-  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Hero Typography */
+.hh-hero-title {
+  @apply text-5xl md:text-7xl font-black text-[--honhai-charcoal] leading-tight tracking-tight uppercase;
 }
 
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.hh-hero-subtitle {
+  @apply text-xl md:text-2xl font-bold text-[--honhai-red] mt-4 uppercase tracking-[0.2em];
+}
+
+/* Professional Statistics Block */
+.hh-stat-card {
+  @apply border-l-4 border-[--honhai-red] pl-6 py-4 bg-white shadow-sm hover:shadow-md transition-all;
+}
+
+.hh-btn {
+  @apply bg-[--honhai-red] text-white px-8 py-3 font-bold text-sm tracking-widest uppercase transition-all hover:bg-black hover:scale-105 active:scale-95;
+}
+
+/* Typography Hierarchy */
+h2 {
+  @apply text-3xl md:text-5xl font-black text-[--honhai-charcoal] mb-8 relative inline-block;
+}
+
+h2::after {
+  content: '';
+  @apply absolute -bottom-4 left-0 w-20 h-1.5 bg-[--honhai-red];
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-html { scroll-behavior: smooth; }
