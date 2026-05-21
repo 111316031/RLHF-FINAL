@@ -34,19 +34,19 @@ function App() {
       {/* Light Blue Corporate Header */}
       <header className="hh-header">
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
-          <div className="flex items-center gap-10 flex-1">
+          <div className="flex items-center gap-6 md:gap-10 flex-1 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-1 cursor-pointer flex-shrink-0" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="text-4xl font-black text-[--brand-blue] tracking-tighter italic">ALGO</span>
-            <div className="h-8 w-px bg-slate-200 mx-2" />
-            <span className="text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
+            <span className="text-3xl md:text-4xl font-black text-[--brand-blue] tracking-tighter italic">ALGO</span>
+            <div className="h-6 md:h-8 w-px bg-slate-200 mx-1 md:mx-2" />
+            <span className="text-sm md:text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-4 xl:gap-8 ml-10">
+          <nav className="flex items-center gap-4 md:gap-8 ml-4 md:ml-10 flex-shrink-0">
             {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="hh-nav-link text-xs font-black uppercase tracking-widest whitespace-nowrap hover:text-[--brand-blue] transition-all"
+                className="hh-nav-link text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap hover:text-[--brand-blue] transition-all"
               >
                 {item.label}
               </button>
