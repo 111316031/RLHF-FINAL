@@ -65,38 +65,17 @@ function App() {
           <main className="pt-20">
           {/* Modern Hero Section */}
           <section className="bg-white border-b border-slate-100 py-32 md:py-48">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div>
+            <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
               <span className="hh-hero-subtitle">Technical Analysis Archive</span>
               <h1 className="hh-hero-title mt-6">
                 演算法 <span className="text-[--brand-blue]">學習與實證</span> <br /> 
                 技術專題報告
               </h1>
-              <p className="mt-10 text-xl text-slate-500 leading-relaxed font-medium">
+              <p className="mt-10 text-xl text-slate-500 leading-relaxed font-medium max-w-3xl mx-auto">
                 本報告嚴謹遵循六大任務要求，結合 AI 輔助學習、數據查證與視覺化分析，全面解構演算法的核心邏輯與應用價值。
               </p>
-            </div>              
-              <div className="grid grid-cols-2 gap-6">
-                 {[
-                   { label: '任務完成度', val: '100', unit: '%', icon: <Activity /> },
-                   { label: 'AI 輔助度', val: 'High', unit: 'Level', icon: <Cpu /> },
-                   { label: '數據精準度', val: 'Pure', unit: 'Core', icon: <Briefcase /> },
-                   { label: '視覺化', val: 'Full', unit: 'Stack', icon: <Globe /> }
-                 ].map((stat, i) => (
-                   <div key={i} className="hh-stat-card border-l-[--brand-blue] rounded-r-lg">
-                      <div className="text-[--brand-blue] mb-2">{stat.icon}</div>
-                      <div className="text-3xl font-black text-slate-900 leading-none">
-                        {stat.val}<span className="text-sm font-bold text-slate-300 ml-1">{stat.unit}</span>
-                      </div>
-                      <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-2">{stat.label}</div>
-                   </div>
-                 ))}
-              </div>
             </div>
-          </div>
-        </section>
-
+          </section>
         {/* Structured Content */}
         <div className="bg-white">
           <AlgorithmIntro />
