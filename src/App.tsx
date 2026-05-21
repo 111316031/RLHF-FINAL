@@ -4,7 +4,7 @@ import VerificationCorrection from './components/VerificationCorrection';
 import VisualExplanation from './components/VisualExplanation';
 import ApplicationCase from './components/ApplicationCase';
 import LearningReflection from './components/LearningReflection';
-import { Globe, User, Search, ChevronRight, Activity, Cpu, Briefcase } from 'lucide-react';
+import { Globe, User, Activity, Cpu, Briefcase } from 'lucide-react';
 
 function App() {
   const scrollTo = (id: string) => {
