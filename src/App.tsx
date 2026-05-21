@@ -40,13 +40,13 @@ function App() {
             <span className="text-sm md:text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
           </div>
 
-          <nav className="flex-1 flex justify-center overflow-x-auto no-scrollbar px-12 md:px-20">
-            <div className="flex items-center gap-16 md:gap-32 xl:gap-40 flex-shrink-0 py-2">
+          <nav className="flex-1 flex justify-center overflow-x-auto no-scrollbar px-4">
+            <div className="flex items-center gap-20 md:gap-48 lg:gap-64 xl:gap-80 flex-shrink-0 py-4">
               {navItems.map(item => (
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className="hh-nav-link text-[11px] md:text-sm font-black uppercase tracking-[0.15em] whitespace-nowrap"
+                  className="hh-nav-link text-[10px] md:text-xs font-black uppercase tracking-[0.3em] whitespace-nowrap"
                 >
                   {item.label}
                 </button>
