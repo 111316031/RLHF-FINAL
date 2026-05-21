@@ -1,4 +1,4 @@
-import { Zap, Target, ArrowRight } from 'lucide-react';
+import { Zap } from 'lucide-react';
 import Section from './Section';
 
 const ApplicationCase = () => {

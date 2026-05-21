@@ -1,4 +1,4 @@
-import { CheckCircle2, Search, ArrowRightLeft } from 'lucide-react';
+import { Search, ArrowRightLeft, Activity } from 'lucide-react';
 import Section from './Section';
 
 const VerificationCorrection = () => {
@@ -46,6 +46,20 @@ const VerificationCorrection = () => {
               </div>
            </div>
         </div>
+      </div>
+      
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+             { label: '數據精準度', val: '100%', icon: <Activity size={14} /> },
+             { label: '來源可靠性', val: '高級別', icon: <Search size={14} /> },
+             { label: '驗證完成度', val: '已結案', icon: <ArrowRightLeft size={14} /> }
+          ].map((item, i) => (
+             <div key={i} className="hh-stat-card">
+                <div className="text-[--honhai-red] mb-2">{item.icon}</div>
+                <div className="text-2xl font-black text-slate-900">{item.val}</div>
+                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-1">{item.label}</div>
+             </div>
+          ))}
       </div>
     </Section>
   );

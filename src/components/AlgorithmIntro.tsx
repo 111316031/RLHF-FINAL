@@ -1,4 +1,4 @@
-import { ShieldCheck, Cpu, PlayCircle, Globe } from 'lucide-react';
+import { PlayCircle, Globe } from 'lucide-react';
 import Section from './Section';
 
 const AlgorithmIntro = () => {
