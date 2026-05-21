@@ -1,41 +1,51 @@
-import { Zap, ExternalLink } from 'lucide-react';
+import { Zap, Target, ArrowRight } from 'lucide-react';
 import Section from './Section';
 
 const ApplicationCase = () => {
   return (
     <Section 
       id="application" 
-      title="全球應用實踐" 
-      badge="Global Impact"
+      title="5. 應用案例" 
+      badge="Application Case"
+      subtitle="將演算法應用於實際情境，展現技術轉化為生產力的實戰價值。"
     >
-      <div className="flex flex-col lg:flex-row gap-16 items-center">
-        <div className="flex-1 space-y-8">
-          <div className="inline-block bg-slate-900 text-white px-4 py-1 text-xs font-black uppercase tracking-[0.2em]">
-            工業 4.0 案例研究
+      <div className="flex flex-col lg:flex-row gap-20 items-center">
+        <div className="flex-1 space-y-10">
+          <div>
+            <div className="inline-block bg-[--honhai-red] text-white px-4 py-1 text-xs font-black uppercase tracking-[0.2em] mb-6">
+              實際應用情境
+            </div>
+            <h3 className="text-4xl font-black text-slate-900 leading-tight uppercase tracking-tighter">
+              [應用名稱] <br /> <span className="text-slate-400">專題研究</span>
+            </h3>
           </div>
-          <h3 className="text-3xl font-black text-slate-900 leading-tight">
-            智慧工廠中的 <br /> <span className="text-[--honhai-red]">自動化調度系統</span>
-          </h3>
-          <p className="text-slate-600 leading-relaxed text-lg">
-            我們將此演算法應用於全球各地的智慧工廠中。透過精準的邏輯運算，實現了物流機器人的最優路徑規劃，將生產效率提升了 35%。
+          
+          <p className="text-slate-600 leading-relaxed text-lg font-medium border-l-4 border-slate-900 pl-8">
+            詳細說明此演算法在現實世界中的一個具體應用。例如：在影像辨識中，此演算法如何幫助識別特徵；或是在推薦系統中，它如何精準計算用戶偏好，進而提升轉化率。
           </p>
-          <div className="grid grid-cols-2 gap-6">
-             {['影像辨識', '語音辨識', '文字生成', '醫學影像'].map(tag => (
-               <div key={tag} className="flex items-center gap-3 p-4 bg-slate-50 border border-slate-100 font-bold text-sm text-slate-700">
-                  <div className="w-1.5 h-1.5 bg-[--honhai-red]" />
-                  {tag}
+
+          <div className="grid grid-cols-2 gap-4">
+             {['影像辨識', '語音辨識', '文字生成', '醫學影像', '推薦系統', '自駕車', '生成式 AI'].slice(0, 4).map(tag => (
+               <div key={tag} className="flex items-center gap-3 p-5 bg-slate-50 border border-slate-100 group hover:border-[--honhai-red] transition-all">
+                  <div className="w-1.5 h-1.5 bg-slate-300 group-hover:bg-[--honhai-red] transition-colors" />
+                  <span className="text-sm font-bold text-slate-700">{tag}</span>
                </div>
              ))}
           </div>
-          <button className="flex items-center gap-2 text-[--honhai-red] font-black uppercase tracking-widest text-xs group">
-            查看詳細技術報告 <ExternalLink size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-          </button>
         </div>
         
-        <div className="w-full lg:w-1/2 aspect-square bg-slate-100 relative group overflow-hidden">
-           <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="factory" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" />
-           <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <Zap size={64} className="text-white opacity-20" />
+        <div className="w-full lg:w-1/3 aspect-[4/5] bg-slate-100 relative group overflow-hidden shadow-2xl shadow-slate-200">
+           <img 
+             src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" 
+             alt="tech" 
+             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" 
+           />
+           <div className="absolute inset-0 bg-gradient-to-t from-[--honhai-charcoal] via-transparent to-transparent opacity-60" />
+           <div className="absolute bottom-10 left-10 right-10">
+              <div className="w-12 h-1 bg-[--honhai-red] mb-4" />
+              <p className="text-white font-bold text-sm uppercase tracking-widest leading-relaxed">
+                Empowering the future through precise algorithmic logic.
+              </p>
            </div>
         </div>
       </div>

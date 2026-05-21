@@ -1,55 +1,54 @@
-import { CheckCircle2, AlertTriangle } from 'lucide-react';
+import { CheckCircle2, Search, ArrowRightLeft } from 'lucide-react';
 import Section from './Section';
 
 const VerificationCorrection = () => {
   return (
     <Section 
       id="verification" 
-      title="嚴謹數據實證" 
-      badge="Verification"
+      title="3. 查證與修正" 
+      badge="Verification & Accuracy"
+      subtitle="秉持實事求是的科學精神，針對 AI 回答的關鍵內容進行嚴謹的交叉比對與實證。"
     >
-      <div className="space-y-12">
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-           {[
-             { label: '查證對象', val: '核心邏輯 A', icon: <CheckCircle2 className="mx-auto mb-4 text-[--honhai-red]" /> },
-             { label: '查證狀態', val: '驗證通過', icon: <Activity className="mx-auto mb-4 text-[--honhai-red]" /> },
-             { label: '修正次數', val: '0 次', icon: <AlertTriangle className="mx-auto mb-4 text-[--honhai-red]" /> }
-           ].map((item, i) => (
-             <div key={i} className="bg-slate-50 p-6 border border-slate-100">
-                {item.icon}
-                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{item.label}</div>
-                <div className="text-xl font-bold text-slate-900">{item.val}</div>
+      <div className="grid lg:grid-cols-3 gap-12">
+        <div className="lg:col-span-2 space-y-10">
+          <div className="bg-slate-50 p-10 border border-slate-100">
+             <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-slate-900 text-white">
+                   <Search size={20} />
+                </div>
+                <h3 className="text-xl font-black text-slate-900 uppercase">查證重點與確認方式</h3>
              </div>
-           ))}
+             <p className="text-slate-700 font-bold mb-6 italic border-b border-slate-200 pb-4">
+                「我選擇了 AI 回答中的一個重點：[請填寫查證內容] 進行查證。」
+             </p>
+             <p className="text-slate-600 leading-relaxed">
+                說明如何確認該資訊是否正確。是透過查閱官方技術文檔、參考權威學術論文，還是透過實際的程式碼編譯與運行來進行驗證？請列出您的查證來源與過程。
+             </p>
+          </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1">
-             <h3 className="text-xl font-bold text-slate-900 mb-4 uppercase">查證流程與來源</h3>
-             <p className="text-slate-600 leading-relaxed mb-6">
-                我們秉持集團誠信的核心價值，對 AI 的回答進行了多維度的查證。從學術論文到實作日誌，確保每一項資訊的精準度。
-             </p>
-             <ul className="grid grid-cols-2 gap-4">
-                {['官方技術文檔', '權威學術論文', '大規模實驗室驗證', '同儕專家評審'].map(s => (
-                  <li key={s} className="text-xs font-bold text-slate-500 flex items-center gap-2">
-                    <div className="w-1 h-1 bg-[--honhai-red]" />
-                    {s}
-                  </li>
-                ))}
-             </ul>
-          </div>
-          <div className="w-full md:w-1/3 bg-slate-900 p-8 text-white">
-             <div className="text-sm font-black text-[--honhai-red] uppercase tracking-widest mb-4">修正對比</div>
-             <div className="space-y-4">
-                <div className="text-xs text-slate-400 italic">原本理解...</div>
-                <div className="text-lg font-bold">經查證後更新為最新標準。</div>
-             </div>
-          </div>
+        <div className="space-y-6">
+           <div className="bg-[--honhai-charcoal] p-8 text-white relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-4 opacity-10">
+                 <ArrowRightLeft size={60} />
+              </div>
+              <h3 className="text-sm font-black text-[--honhai-red] uppercase tracking-widest mb-6">理解修正對比</h3>
+              <div className="space-y-6 relative z-10">
+                 <div>
+                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">修正前</span>
+                    <p className="text-sm text-slate-300 line-through decoration-red-500/50 decoration-2">原本以為該演算法在...情況下會...</p>
+                 </div>
+                 <div className="h-px bg-slate-800 w-full" />
+                 <div>
+                    <span className="text-[10px] font-black text-[--honhai-red] uppercase tracking-widest block mb-2">修正後</span>
+                    <p className="text-lg font-bold text-white">後來確認最新標準應為...</p>
+                 </div>
+              </div>
+           </div>
         </div>
       </div>
     </Section>
   );
 };
 
-import { Activity } from 'lucide-react';
 export default VerificationCorrection;
