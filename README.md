@@ -36,7 +36,7 @@
 
 2.  **連結至 GitHub Repository:**
     ```bash
-    git remote add origin https://github.com/你的帳號/你的專案名.git
+    git remote add origin https://github.com/111316031/RLHF-FINAL.git
     ```
 
 3.  **執行部署命令:**
