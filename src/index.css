@@ -15,64 +15,150 @@
 
 body {
   background-color: #ffffff;
-  color: var(--text-primary);
+  color: #1a1a1a;
   font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
 }
 
 /* Global Corporate Header */
 .hh-header {
-  @apply bg-white border-b-2 border-slate-100 fixed top-0 inset-x-0 z-[100] h-20 flex items-center shadow-sm;
+  background-color: #ffffff;
+  border-bottom: 2px solid #f1f5f9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .hh-nav-link {
-  @apply text-[15px] font-bold text-slate-700 hover:text-[--honhai-red] transition-all relative px-2 py-1;
+  font-size: 15px;
+  font-weight: 700;
+  color: #334155;
+  transition: all 0.2s;
+  position: relative;
+  padding: 0.25rem 0.5rem;
 }
 
 .hh-nav-link::after {
   content: '';
-  @apply absolute bottom-0 left-0 w-0 h-[3px] bg-[--honhai-red] transition-all duration-300;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #e60012;
+  transition: all 0.3s;
+}
+
+.hh-nav-link:hover {
+  color: #e60012;
 }
 
 .hh-nav-link:hover::after {
-  @apply w-full;
+  width: 100%;
 }
 
 /* Authoritative Section Container */
 .hh-section-container {
-  @apply bg-white border-t border-slate-200 py-24;
+  background-color: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 .hh-section-alt {
-  @apply bg-[--honhai-gray-light] border-y border-slate-200 py-24;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
 /* Hero Typography */
 .hh-hero-title {
-  @apply text-5xl md:text-7xl font-black text-[--honhai-charcoal] leading-tight tracking-tight uppercase;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .hh-hero-title {
+    font-size: 4.5rem;
+  }
 }
 
 .hh-hero-subtitle {
-  @apply text-xl md:text-2xl font-bold text-[--honhai-red] mt-4 uppercase tracking-[0.2em];
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e60012;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
 }
 
 /* Professional Statistics Block */
 .hh-stat-card {
-  @apply border-l-4 border-[--honhai-red] pl-6 py-4 bg-white shadow-sm hover:shadow-md transition-all;
+  border-left: 4px solid #e60012;
+  padding-left: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+
+.hh-stat-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .hh-btn {
-  @apply bg-[--honhai-red] text-white px-8 py-3 font-bold text-sm tracking-widest uppercase transition-all hover:bg-black hover:scale-105 active:scale-95;
+  background-color: #e60012;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.hh-btn:hover {
+  background-color: #000000;
+  transform: translateY(-2px);
 }
 
 /* Typography Hierarchy */
 h2 {
-  @apply text-3xl md:text-5xl font-black text-[--honhai-charcoal] mb-8 relative inline-block;
+  font-size: 1.875rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 3rem;
+  }
 }
 
 h2::after {
   content: '';
-  @apply absolute -bottom-4 left-0 w-20 h-1.5 bg-[--honhai-red];
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 5rem;
+  height: 2px;
+  background-color: #e60012;
 }
 
 html {
