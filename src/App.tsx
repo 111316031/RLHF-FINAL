@@ -33,34 +33,33 @@ function App() {
     <div className="min-h-screen selection:bg-sky-200 selection:text-sky-900">
       {/* Light Blue Corporate Header */}
       <header className="hh-header">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
-          <div className="flex items-center gap-6 md:gap-10 flex-1 overflow-x-auto no-scrollbar">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between gap-4">
           <div className="flex items-center gap-1 cursor-pointer flex-shrink-0" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="text-3xl md:text-4xl font-black text-[--brand-blue] tracking-tighter italic">ALGO</span>
             <div className="h-6 md:h-8 w-px bg-slate-200 mx-1 md:mx-2" />
             <span className="text-sm md:text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
           </div>
 
-          <nav className="flex items-center gap-4 md:gap-8 ml-4 md:ml-10 flex-shrink-0">
-            {navItems.map(item => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className="hh-nav-link text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap hover:text-[--brand-blue] transition-all"
-              >
-                {item.label}
-              </button>
-            ))}
+          <nav className="flex-1 flex justify-center overflow-x-auto no-scrollbar px-4">
+            <div className="flex items-center gap-6 md:gap-12 lg:gap-16 flex-shrink-0 py-2">
+              {navItems.map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollTo(item.id)}
+                  className="hh-nav-link text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap hover:text-[--brand-blue] transition-all px-2"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </nav>
-          </div>
 
-          <div className="flex items-center gap-6">
-          <button className="hh-btn hidden sm:block rounded-md">
-            開始探索
-          </button>
+          <div className="flex items-center gap-6 flex-shrink-0">
+            <button className="hh-btn hidden sm:block rounded-md">
+              開始探索
+            </button>
           </div>
-          </div>
-          </header>
+        </div>          </header>
 
           <main className="pt-20">
           {/* Modern Hero Section */}
