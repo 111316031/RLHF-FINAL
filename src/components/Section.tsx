@@ -3,31 +3,35 @@ import React from 'react';
 interface SectionProps {
   id: string;
   title: string;
+  badge?: string;
   subtitle?: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode; // Keeping icon for compatibility
   children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, subtitle, icon, children }) => {
+const Section: React.FC<SectionProps> = ({ id, title, badge, subtitle, children }) => {
   return (
-    <section id={id} className="py-20 scroll-mt-24">
-      <div className="flex flex-col items-center text-center mb-12">
-        <div className="p-4 bg-indigo-50 text-indigo-600 rounded-2xl mb-4 shadow-sm ring-1 ring-indigo-100">
-          {icon}
+    <section id={id} className="py-32 scroll-mt-20 first:pt-16">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex flex-col mb-16 items-start text-left">
+          {badge && (
+            <span className="text-[10px] font-black tracking-[0.3em] text-indigo-600 uppercase mb-4 bg-indigo-50 px-2 py-1 rounded-sm">
+              {badge}
+            </span>
+          )}
+          <h2 className="text-5xl md:text-7xl font-bold text-slate-900 mb-8 leading-none tracking-tighter">
+            {title}
+          </h2>
+          {subtitle && (
+            <p className="text-xl md:text-2xl text-slate-400 font-medium max-w-2xl leading-tight">
+              {subtitle}
+            </p>
+          )}
         </div>
-        <h2 className="text-4xl font-black tracking-tight text-slate-900 mb-2">
-          {title}
-        </h2>
-        {subtitle && (
-          <p className="text-slate-500 font-medium max-w-lg mx-auto">
-            {subtitle}
-          </p>
-        )}
-        <div className="h-1 w-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mt-6" />
-      </div>
-      
-      <div className="glass-card rounded-3xl p-8 md:p-12 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(79,70,229,0.1)] group">
-        {children}
+        
+        <div className="bg-white rounded-[3rem] p-10 md:p-20 card-shadow border border-slate-100/50 transition-all duration-700 hover:border-indigo-100">
+          {children}
+        </div>
       </div>
     </section>
   );

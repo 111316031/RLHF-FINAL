@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://111316031.github.io/RLHF-FINAL/",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",

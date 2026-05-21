@@ -4,157 +4,154 @@ import VerificationCorrection from './components/VerificationCorrection';
 import VisualExplanation from './components/VisualExplanation';
 import ApplicationCase from './components/ApplicationCase';
 import LearningReflection from './components/LearningReflection';
-import { Code, Globe, ChevronRight } from 'lucide-react';
+import { Globe, User, Search, ArrowUpRight, Zap, Terminal } from 'lucide-react';
 
 function App() {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
   const navItems = [
-    { id: 'intro', label: '演算法介紹' },
-    { id: 'ai-record', label: '學習紀錄' },
-    { id: 'verification', label: '查證與修正' },
-    { id: 'visual', label: '視覺化說明' },
-    { id: 'application', label: '應用案例' },
-    { id: 'reflection', label: '學習反思' },
+    { id: 'intro', label: '介紹', icon: <Terminal size={14} /> },
+    { id: 'ai-record', label: '紀錄', icon: <Zap size={14} /> },
+    { id: 'verification', label: '數據', icon: <Search size={14} /> },
+    { id: 'visual', label: '視覺', icon: <Globe size={14} /> },
+    { id: 'application', label: '實踐', icon: <ArrowUpRight size={14} /> },
+    { id: 'reflection', label: '反思', icon: <User size={14} /> },
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 inset-x-0 z-[100] bg-white/70 backdrop-blur-xl border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-tr from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 group-hover:scale-110 transition-transform">
-              <Code size={22} />
+      <div className="glow-bg" />
+      
+      {/* Floating Modern Header */}
+      <nav className="fixed top-6 inset-x-0 z-[100] max-w-4xl mx-auto px-4">
+        <div className="glass-panel h-14 rounded-full px-6 flex items-center justify-between card-shadow">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="w-8 h-8 bg-slate-900 rounded-full flex items-center justify-center text-white">
+              <Zap size={16} fill="white" />
             </div>
-            <span className="font-black text-2xl tracking-tighter text-slate-900">
-              ALGO<span className="text-indigo-600">LAB</span>
-            </span>
+            <span className="font-black text-sm tracking-tighter uppercase italic">Zenith.</span>
           </div>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="nav-link"
+                className="px-4 py-1.5 text-[11px] font-bold text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-full transition-all"
               >
                 {item.label}
               </button>
             ))}
           </div>
 
-          <button className="px-5 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-full hover:bg-indigo-600 transition-all shadow-lg shadow-slate-200 flex items-center gap-2 group">
-            聯繫開發者
-            <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <button className="px-5 py-2 bg-indigo-600 text-white text-[11px] font-black rounded-full hover:bg-indigo-700 transition-all active:scale-95 shadow-lg shadow-indigo-100">
+            CONTACT
           </button>
         </div>
       </nav>
 
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-24 md:py-32">
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold mb-6 animate-fade-in">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-                </span>
-                2026 演算法分析報告
-              </div>
-              <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tight leading-[0.9] mb-8">
-                解構演算法的<br />
-                <span className="section-title-gradient">智慧核心</span>
-              </h1>
-              <p className="text-xl text-slate-500 leading-relaxed mb-10 max-w-xl">
-                這不僅是一份報告，更是一次結合 AI 與人類直覺的深度探索。透過視覺化與實證，揭開代碼背後的數學美學。
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <button 
-                  onClick={() => scrollTo('intro')}
-                  className="px-8 py-4 bg-indigo-600 text-white font-bold rounded-2xl hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-100 flex items-center gap-2"
-                >
-                  開始探索之旅
-                  <ChevronRight size={20} />
-                </button>
-                <div className="flex -space-x-3 items-center">
-                  {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                      <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i}`} alt="avatar" />
-                    </div>
-                  ))}
-                  <span className="pl-6 text-sm font-bold text-slate-400">+1.2k 學習者已加入</span>
-                </div>
-              </div>
-            </div>
+      <main className="relative">
+        {/* Zenith Hero Section */}
+        <section className="max-w-7xl mx-auto px-6 pt-48 pb-24 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 text-indigo-600 rounded-full text-[11px] font-black tracking-widest uppercase mb-12 animate-fade-in">
+            Algorithm Synthesis 2026
           </div>
-
-          {/* Background Decorative Elements */}
-          <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-100 rounded-full blur-[120px] opacity-50" />
-            <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-purple-100 rounded-full blur-[80px] opacity-40" />
+          
+          <h1 className="text-7xl md:text-[10rem] font-bold tracking-tight text-slate-900 leading-[0.8] mb-16 text-reveal">
+            The New <br />
+            Standard.
+          </h1>
+          
+          <div className="max-w-2xl mx-auto">
+            <p className="text-2xl text-slate-500 leading-relaxed font-medium mb-12 text-reveal" style={{ animationDelay: '0.2s' }}>
+              We've redesigned the core of technical research. A seamless integration of AI insight and human logic.
+            </p>
+            
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-reveal" style={{ animationDelay: '0.4s' }}>
+               <button 
+                 onClick={() => scrollTo('intro')}
+                 className="px-10 py-5 bg-slate-900 text-white font-black rounded-2xl hover:scale-105 transition-all shadow-2xl flex items-center gap-3 group"
+               >
+                 Start Exploration
+                 <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+               </button>
+               <div className="flex items-center gap-4">
+                 <div className="flex -space-x-4">
+                    {[1, 2, 3].map(i => (
+                      <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-slate-200 overflow-hidden shadow-sm">
+                        <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="avatar" />
+                      </div>
+                    ))}
+                 </div>
+                 <div className="text-left">
+                    <p className="text-sm font-black text-slate-900">Ethan Xuan</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Lead Investigator</p>
+                 </div>
+               </div>
+            </div>
           </div>
         </section>
 
-        {/* Content Container */}
-        <div className="max-w-6xl mx-auto px-6 pb-32">
+        {/* Modular Bento Content */}
+        <div className="max-w-6xl mx-auto">
           <AlgorithmIntro />
-          <AILearningRecord />
-          <VerificationCorrection />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <AILearningRecord />
+            <VerificationCorrection />
+          </div>
           <VisualExplanation />
-          <ApplicationCase />
-          <LearningReflection />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <ApplicationCase />
+            <LearningReflection />
+          </div>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 py-24 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-12 mb-16">
-            <div className="col-span-2">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white">
-                  <Code size={22} />
-                </div>
-                <span className="font-black text-2xl tracking-tighter">ALGO<span className="text-indigo-400">LAB</span></span>
-              </div>
-              <p className="text-slate-400 max-w-xs leading-relaxed">
-                致力於讓演算法學習變得更直觀、更有趣、更具啟發性。
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-xs">快速連結</h4>
-              <div className="grid gap-4 text-slate-400 text-sm">
-                <a href="#" className="hover:text-indigo-400 transition-colors">演算法介紹</a>
-                <a href="#" className="hover:text-indigo-400 transition-colors">學習紀錄</a>
-                <a href="#" className="hover:text-indigo-400 transition-colors">視覺化展示</a>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-xs">追蹤我們</h4>
-              <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                  <Globe size={18} />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                  <Code size={18} />
-                </a>
-              </div>
-            </div>
+      {/* Floating Dock Navigation (Mobile Friendly) */}
+      <div className="fixed bottom-8 inset-x-0 z-[100] flex justify-center">
+        <div className="glass-panel h-16 rounded-3xl p-2 flex items-center gap-1 card-shadow border-white/50">
+          {navItems.map(item => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className="dock-item w-12 h-12 md:w-20 md:h-12 flex flex-col items-center justify-center rounded-2xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 group"
+            >
+              {item.icon}
+              <span className="text-[8px] font-black uppercase mt-1 hidden md:block">{item.label}</span>
+            </button>
+          ))}
+          <div className="w-px h-8 bg-slate-200 mx-2" />
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-900 text-white hover:bg-indigo-600 transition-colors"
+          >
+            <ArrowUpRight size={16} className="-rotate-90" />
+          </button>
+        </div>
+      </div>
+
+      <footer className="py-32 bg-slate-50 border-t border-slate-100 mt-20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+          <div className="w-12 h-12 bg-slate-900 rounded-2xl flex items-center justify-center text-white mb-8">
+            <Zap size={24} fill="white" />
           </div>
-          <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
-            <p>© 2026 ALGOLAB Framework. All rights reserved.</p>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-white transition-colors">隱私政策</a>
-              <a href="#" className="hover:text-white transition-colors">使用條款</a>
-            </div>
+          <p className="text-3xl font-bold tracking-tight text-slate-900 mb-6">Built for the future of research.</p>
+          <div className="flex gap-8 text-xs font-black text-slate-400 uppercase tracking-widest">
+            <a href="#" className="hover:text-indigo-600 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-indigo-600 transition-colors">Security</a>
+            <a href="#" className="hover:text-indigo-600 transition-colors">Contact</a>
           </div>
+          <p className="mt-12 text-[10px] font-bold text-slate-300 uppercase tracking-[0.3em]">
+            © 2026 ZENITH SYNTHESIS. v3.0 FINAL - {new Date().toLocaleTimeString()}
+          </p>
         </div>
       </footer>
     </div>
