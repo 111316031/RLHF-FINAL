@@ -36,32 +36,21 @@ body {
 }
 
 .hh-nav-link {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  color: #475569;
-  transition: all 0.2s;
+  color: #64748b;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  padding: 0.25rem 0.5rem;
-}
-
-.hh-nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background-color: var(--brand-blue);
-  transition: all 0.3s;
+  padding: 0.5rem 0;
+  border: none;
+  background: none;
 }
 
 .hh-nav-link:hover {
   color: var(--brand-blue);
+  transform: translateY(-1px);
 }
 
-.hh-nav-link:hover::after {
-  width: 100%;
-}
 
 /* Section Container */
 .hh-section-container {
