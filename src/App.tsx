@@ -34,19 +34,19 @@ function App() {
       {/* Light Blue Corporate Header */}
       <header className="hh-header">
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
-          <div className="flex items-center gap-10">
-          <div className="flex items-center gap-1 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-10 flex-1">
+          <div className="flex items-center gap-1 cursor-pointer flex-shrink-0" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <span className="text-4xl font-black text-[--brand-blue] tracking-tighter italic">ALGO</span>
             <div className="h-8 w-px bg-slate-200 mx-2" />
             <span className="text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
           </div>
 
-          <nav className="hidden xl:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-8 ml-10">
             {navItems.map(item => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className="hh-nav-link text-xs whitespace-nowrap"
+                className="hh-nav-link text-xs font-black uppercase tracking-widest whitespace-nowrap hover:text-[--brand-blue] transition-all"
               >
                 {item.label}
               </button>
