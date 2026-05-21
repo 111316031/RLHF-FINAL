@@ -34,64 +34,49 @@ function App() {
       {/* Light Blue Corporate Header */}
       <header className="hh-header">
         <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center justify-between">
-          <div className="flex items-center gap-12">
-            <div className="flex items-center gap-1 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <span className="text-4xl font-black text-[--brand-blue] tracking-tighter italic">ALGO</span>
-              <div className="h-8 w-px bg-slate-200 mx-2" />
-              <span className="text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
-            </div>
-            
-            <nav className="hidden xl:flex items-center gap-6">
-              {navItems.map(item => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollTo(item.id)}
-                  className="hh-nav-link text-xs whitespace-nowrap"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
+          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-1 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <span className="text-4xl font-black text-[--brand-blue] tracking-tighter italic">ALGO</span>
+            <div className="h-8 w-px bg-slate-200 mx-2" />
+            <span className="text-lg font-bold text-slate-400 tracking-widest uppercase">Report</span>
+          </div>
+
+          <nav className="hidden xl:flex items-center gap-6">
+            {navItems.map(item => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="hh-nav-link text-xs whitespace-nowrap"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
           </div>
 
           <div className="flex items-center gap-6">
-            <button className="p-2 text-slate-400 hover:text-[--brand-blue] transition-colors">
-              <Search size={20} />
-            </button>
-            <button className="hh-btn hidden sm:block rounded-md">
-              開始探索
-            </button>
+          <button className="hh-btn hidden sm:block rounded-md">
+            開始探索
+          </button>
           </div>
-        </div>
-      </header>
+          </div>
+          </header>
 
-      <main className="pt-20">
-        {/* Modern Hero Section */}
-        <section className="bg-white border-b border-slate-100 py-32 md:py-48">
+          <main className="pt-20">
+          {/* Modern Hero Section */}
+          <section className="bg-white border-b border-slate-100 py-32 md:py-48">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="grid md:grid-cols-2 gap-20 items-center">
-              <div>
-                <span className="hh-hero-subtitle">Technical Analysis Archive</span>
-                <h1 className="hh-hero-title mt-6">
-                  演算法 <span className="text-[--brand-blue]">學習與實證</span> <br /> 
-                  技術專題報告
-                </h1>
-                <p className="mt-10 text-xl text-slate-500 leading-relaxed font-medium">
-                  本報告嚴謹遵循六大任務要求，結合 AI 輔助學習、數據查證與視覺化分析，全面解構演算法的核心邏輯與應用價值。
-                </p>
-                <div className="mt-12 flex flex-wrap gap-6">
-                  <button 
-                    onClick={() => scrollTo('intro')}
-                    className="hh-btn flex items-center gap-3 rounded-md"
-                  >
-                    進入報告全文 <ChevronRight size={18} />
-                  </button>
-                  <button className="px-8 py-3 border-2 border-slate-200 text-slate-900 font-bold text-sm tracking-widest uppercase hover:bg-slate-50 transition-all rounded-md">
-                    下載資源
-                  </button>
-                </div>
-              </div>
-              
+          <div className="grid md:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="hh-hero-subtitle">Technical Analysis Archive</span>
+              <h1 className="hh-hero-title mt-6">
+                演算法 <span className="text-[--brand-blue]">學習與實證</span> <br /> 
+                技術專題報告
+              </h1>
+              <p className="mt-10 text-xl text-slate-500 leading-relaxed font-medium">
+                本報告嚴謹遵循六大任務要求，結合 AI 輔助學習、數據查證與視覺化分析，全面解構演算法的核心邏輯與應用價值。
+              </p>
+            </div>              
               <div className="grid grid-cols-2 gap-6">
                  {[
                    { label: '任務完成度', val: '100', unit: '%', icon: <Activity /> },
@@ -111,22 +96,7 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* Dynamic Navigation Bar (Jump Directory) */}
-        <div className="sticky top-20 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 overflow-x-auto no-scrollbar shadow-sm">
-          <div className="max-w-7xl mx-auto px-6 md:px-12 h-14 flex items-center gap-8">
-            <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em] whitespace-nowrap">快速跳轉</span>
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                className="text-[11px] font-bold text-slate-500 hover:text-[--brand-blue] transition-all whitespace-nowrap border-b-2 border-transparent hover:border-[--brand-blue] h-full"
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
+<main className="pt-20">
 
         {/* Structured Content */}
         <div className="bg-white">
